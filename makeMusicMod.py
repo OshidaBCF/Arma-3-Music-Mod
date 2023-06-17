@@ -1,6 +1,6 @@
 import os, shutil, audioread, sys
 
-modID = "OshidasMusicMod" #Replace with the "id" of the mod you wish to make, only letters, numbers and _
+modID = "OshidasMusicMod3" #Replace with the "id" of the mod you wish to make, only letters, numbers and _
 modName = "Oshida\'s Music Mod" # Beware to "escape" any special character
 modAuthor = "Oshida"
 
@@ -10,6 +10,7 @@ shutil.rmtree(modID, ignore_errors=True)
 shutil.copytree(R"template", modID) # If an error appear here, delete the mod folder named like modID
 file = open(modID + "\\FileListWithMusicTracks.hpp", "w", encoding="UTF-8")
 musicList = os.listdir("Music")
+os.mkdir(modID + "\\folderwithtracks")
 for i in range(len(musicList)):
     if musicList[i].lower().endswith('.ogg'): # Only Copy OGG Files
         shutil.copy("Music\\" + musicList[i], modID + "\\folderwithtracks\\" + str(i) + ".ogg")
