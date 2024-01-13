@@ -2,26 +2,24 @@
 A python script to automatically make a Music Mod for Arma3 
 
 # Requierement
-1. ```pip install -r requirements.txt```
-2. Python 3
-3. [Chromedriver.exe](https://chromedriver.chromium.org/downloads)
+1. Audioread : ```pip install audioread```
+2. Python
+3. Arma 3 Tools : [Steam Store](https://store.steampowered.com/app/233800/Arma_3_Tools/)
 
 # How to use
-1. Download the script somewhere on your computer
-2. Download the chromedriver and store it somewhere on your computer
-3. Replace "Absolute_path_to_folderç_where_modpackFile_is_located" on line 14 by the path to the modpack file
-4. Replace "Absolute_path_to_chromedriver" on line 43 by the path to the chromedriver.exe
-5. Replace "Absolute_path_to_image" on line 54 by the path to the image for your collection, has to be square shaped and at least 195x195 px
-6. Before running the script :
-    - You need to be sure you are logged in your steam account on chrome
-    - You need to start chrome with the additional parameter ```--remote-debugging-port=9222```
-    - In the likeliness that you installed chrome in the default folder, run this command in cmd or windows+r ```"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222```
-    - If chrome was already running, you'll need to stop it completly (3 dot menu then "quit")
-    - You need to be sure that you are subscribed to every mods listed in the html file, if one is missing the script will stop
-    - You can simpely drop the html in the arma launcher and it will subscribe to any missing mods
-8. Run the python script, it should open a new tab in chrome, go to the steam page and generate a collection
-9. At the end it will pause for 20-40 seconds and check for when steam finish analyzing the collection, it will then print the link of the collection, and if you want it can also send the link on discord via a webhook.
+1. Download the project somewhere on your computer
+2. Create a folder named "Music" next to the py script
+3. Copy the musics to be added to the mod into the "Music" folder (Must be as .ogg files)
+4. Edit the python script, you need to change the "folder" variable at the begining, this is the "ID" of the mod. Only Letters, Numbers (_ and - may work but just in case don't)
+5. (Optional) Modify the logo.paa and steamlogo.png in the template folder, this will be the logo of your mod
+6. Run the python script, it should automatically copy the ogg from "Music" to the "folderwithtracks" folder, generate the hpp/cpp files
+7. Use the Arma 3 Addons Builder to build the mod,
+    - Select the created folder (the one named with the mod ID) as the source folder and the destination folder
+    - Uncheck "binarize" (it apparently cause issues with sound mods)
+    - Pack
+8. Copy the pbo file from the created folder to the Addons Folder inside the folder starting with an @
+9. The mod is now complete and can be uploaded to the workshop using the Publisher tool in the Arma 3 Toolbox
 
 
-There shouldn't be any issue but i know that my explanations can be very bad sometimes.
+There shouldn't be any issue but i know that my explaining can be very bad sometime.
 If there is any problem please open an issue and i'll try to help
